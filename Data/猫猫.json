@@ -1,0 +1,39 @@
+{
+    "tasks": [
+        {
+            "k_set": [ "J", "U", "J", "U" ],
+            "m_set": [ "Press", "Click", "Press", "Click" ],
+            "tc_set": [ 1000, 200, 1000, 200 ],
+            "ti_set": [ 500, 100, 500, 1000 ],
+            "beginDelay": 0
+        },
+        {
+            "k_set": [ "I" ],
+            "m_set": [ "Click" ],
+            "tc_set": [ 2000 ],
+            "ti_set": [ 19000 ],
+            "beginDelay": 0
+        },
+        {
+            "k_set": [ "D1" ],
+            "m_set": [ "Click" ],
+            "tc_set": [ 3000 ],
+            "ti_set": [ 55000 ],
+            "beginDelay": 0
+        },
+        {
+            "k_set": [ "D2" ],
+            "m_set": [ "Click" ],
+            "tc_set": [ 3000 ],
+            "ti_set": [ 45000 ],
+            "beginDelay": 0
+        },
+        {
+            "k_set": [ "L" ],
+            "m_set": [ "Click" ],
+            "tc_set": [ 1000 ],
+            "ti_set": [ 40000 ],
+            "beginDelay": 10
+        }
+    ]
+}
