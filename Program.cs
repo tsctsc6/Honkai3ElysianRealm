@@ -105,11 +105,12 @@ namespace BH3浅层乐土
                 KeyMode[] m_set = new KeyMode[m_array.Count];
                 for (int i = 0; i < m_array.Count; i++)
                 {
-                    string m_string = m_array[0].ToString();
+                    string m_string = m_array[i].ToString();
                     switch(m_string)
                     {
                         case "Click": m_set[i] = KeyMode.Click; break;
                         case "Press": m_set[i] = KeyMode.Press; break;
+                        default: break;
                     }
                 }
 

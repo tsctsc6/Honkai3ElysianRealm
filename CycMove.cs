@@ -51,6 +51,7 @@ namespace BH3浅层乐土
         public void Move()
         {
             bool IsFighting_ = false;
+            Thread.Sleep(beginDelay);
             for (int i =  0; i < key.Length; i = ( i + 1 ) % key.Length)
             {
                 Program.wFirst.WaitOne();
