@@ -33,23 +33,19 @@ namespace BH3浅层乐土
                 WindowCaptureHelper.GetWindowRect(bh3IntPtr, ref bh3pos);
                 int normalizedX = 65535 * (bh3pos.X + (int)(1100 / WindowCaptureHelper.zoom)) / Screen.PrimaryScreen.Bounds.Width;
                 int normalizedY = 65535 * (bh3pos.Y + (int)(700 / WindowCaptureHelper.zoom)) / Screen.PrimaryScreen.Bounds.Height;
-                ocr.Scan(WindowCaptureHelper.GetShotCutImage(bh3IntPtr, 1000, 600, 200, 150));
-                while (ocr.Text[0] == "开始战斗")
+                do
                 {
                     WinAPI.mouse_event(WinAPI.MOUSEEVENTF_ABSOLUTE | WinAPI.MOUSEEVENTF_MOVE,
                         normalizedX, normalizedY, 0, 0);
-                    Thread.Sleep(100);
+                    Thread.Sleep(100 + NormalDistribution.GetNum());
                     WinAPI.mouse_event(WinAPI.MOUSEEVENTF_LEFTDOWN | WinAPI.MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
-                    Thread.Sleep(1000);
+                    Thread.Sleep(400 + NormalDistribution.GetNum());
                     ocr.Scan(WindowCaptureHelper.GetShotCutImage(bh3IntPtr, 1000, 600, 200, 150));
-                }
-                Thread.Sleep(1000);
+                } while (ocr.Text[0] != "加载中");
                 while (ocr.Text[0] == "加载中")
                 {
-                    WinAPI.mouse_event(WinAPI.MOUSEEVENTF_ABSOLUTE | WinAPI.MOUSEEVENTF_MOVE,
-                        normalizedX, normalizedY, 0, 0);
+                    Thread.Sleep(500);
                     ocr.Scan(WindowCaptureHelper.GetShotCutImage(bh3IntPtr, 1000, 600, 200, 150));
-                    Thread.Sleep(1000);
                 }
 
                 wFirst.WaitOne();
@@ -59,7 +55,7 @@ namespace BH3浅层乐土
                 wFirst.Release();
 
                 foreach (var move in moves) move.NewThreadAndStart();
-                Thread.Sleep(61000);
+                Thread.Sleep(70000);
 
                 while (ocr.Text[0] != "挑战目标")
                 {
